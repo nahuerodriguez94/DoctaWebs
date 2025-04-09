@@ -16,8 +16,8 @@ export const Home = () => {
         <Portada></Portada>
         <Servicios></Servicios>
         <Pasos></Pasos>
-        <FormularioContacto></FormularioContacto>
         <Preguntas></Preguntas>
+        <FormularioContacto></FormularioContacto>
         <BtnWhatsApp> </BtnWhatsApp>
         <Footer></Footer>
     </>

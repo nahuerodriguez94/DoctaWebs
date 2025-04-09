@@ -57,7 +57,7 @@ export const Preguntas = () => {
   };
 
   return (
-    <Container maxWidth="md" sx={{ py: 5 }}>
+    <Container id="preguntas-frecuentes" maxWidth="md" sx={{ py: 5 }}>
       <Box textAlign="center" mb={4}>
         <Typography variant="h4" component="h2" fontWeight="bold" gutterBottom>
           Preguntas Frecuentes

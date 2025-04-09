@@ -9,9 +9,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 
-const pages = ["Servicios", "Portfolio", "Planes", "Contacto"];
+const pages = [
+  { name: "Servicios", id: "servicios" },
+  { name: "Cómo Trabajamos", id: "como-trabajamos" },
+  { name: "Preguntas Frecuentes", id: "preguntas-frecuentes" },
+  { name: "Contacto", id: "contacto" },
+];
 
 export const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -25,91 +29,97 @@ export const Navbar = () => {
 
   return (
     <>
-        <AppBar position="fixed" sx={{ backgroundColor: "#6C63FF"}}>
+      <AppBar position="fixed" sx={{ backgroundColor: "#6C63FF" }}>
         <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
-              sx={{
-                mr: 2,
-                display: { xs: "none", md: "flex" },
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-             DW
-            </Typography>
+          <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
+            
+            {/* Logo escritorio */}
+            <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", mr: 2 }}>
+              <a href="#">
+                <img
+                  src="./logo.png"
+                  alt="Logo"
+                  style={{
+                    height: 60,
+                    transition: "transform 0.3s",
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                />
+              </a>
+            </Box>
 
-            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            {/* Menú móvil */}
+            <Box sx={{ display: { xs: "flex", md: "none" }, flexGrow: 0 }}>
               <IconButton
                 size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
                 onClick={handleOpenNavMenu}
                 color="inherit"
               >
                 <MenuIcon />
               </IconButton>
               <Menu
-                id="menu-appbar"
                 anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
+                anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+                transformOrigin={{ vertical: "top", horizontal: "left" }}
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
                 sx={{ display: { xs: "block", md: "none" } }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography sx={{ textAlign: "center" }}>{page}</Typography>
+                  <MenuItem key={page.id} onClick={handleCloseNavMenu}>
+                    <Typography
+                      component="a"
+                      href={`#${page.id}`}
+                      sx={{
+                        textAlign: "center",
+                        textDecoration: "none",
+                        color: "inherit",
+                        width: "100%",
+                      }}
+                    >
+                      {page.name}
+                    </Typography>
                   </MenuItem>
                 ))}
               </Menu>
             </Box>
-            <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
+
+            {/* Logo mobile */}
+            <Box sx={{ display: { xs: "flex", md: "none" }, flexGrow: 1, justifyContent: "center" }}>
+              <a href="#">
+                <img
+                  src="./logo.png"
+                  alt="Logo"
+                  style={{
+                    height: 60,
+                    transition: "transform 0.3s",
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                />
+              </a>
+            </Box>
+
+            {/* Menú escritorio */}
+            <Box
               sx={{
-                mr: 2,
-                display: { xs: "flex", md: "none" },
                 flexGrow: 1,
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
+                display: { xs: "none", md: "flex" },
+                justifyContent: "space-around",
               }}
             >
-              LOGO
-            </Typography>
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <Button
-                  key={page}
+                  key={page.id}
                   onClick={handleCloseNavMenu}
+                  component="a"
+                  href={`#${page.id}`}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  {page}
+                  {page.name}
                 </Button>
               ))}
-            </Box>
-            <Box sx={{ flexGrow: 0 }}>
             </Box>
           </Toolbar>
         </Container>

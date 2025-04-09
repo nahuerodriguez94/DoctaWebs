@@ -26,8 +26,12 @@ export const Pasos = () => {
     },
   ];
 
+
   return (
-    <Box sx={{ width: "100%", textAlign: "center", mt: 5 }}>
+    <Box
+      id="como-trabajamos"
+      sx={{ width: "100%", textAlign: "center", mt: 5 }}
+    >
       <Typography variant="h2" fontWeight="bold" gutterBottom>
         Cómo Trabajamos
       </Typography>
@@ -41,13 +45,24 @@ export const Pasos = () => {
         nos eligen. Nuestro servicio se compone de 3 etapas:
       </Typography>
 
-      <Grid2 container spacing={2} alignItems="center" direction={{ xs: "column", md: "row" }}>
+      <Grid2
+        container
+        spacing={2}
+        alignItems="center"
+        direction={{ xs: "column", md: "row" }}
+      >
         {/* Izquierda - Contenido */}
         <Grid2 size={6} >
           {procesos.map((proceso, index) => (
             <Card
               key={index}
-              sx={{ p: 3, mb: 2, textAlign: "center", boxShadow: 3 }}
+              sx={{
+                p: 3,
+                mb: 2,
+                textAlign: "center",
+                boxShadow: 3,
+                width:"100%"
+              }}
             >
               <CardContent>
                 <Box
@@ -55,7 +70,7 @@ export const Pasos = () => {
                   alignItems="center"
                   justifyContent="center"
                   gap={2}
-                  sx={{ mt: 2 }}
+                  sx={{ mt: 1 }}
                 >
                   {proceso.icono}
                   <Typography variant="h5" fontWeight="bold">
@@ -71,7 +86,12 @@ export const Pasos = () => {
         </Grid2>
 
         {/* Derecha - Video */}
-        <Grid2 display="flex" justifyContent="center" alignItems="center" size={6}>
+        <Grid2
+          display={{ xs: "none", md: "flex" }}
+          justifyContent="center"
+          alignItems="center"
+          size={6}
+        >
           <Card sx={{ width: "100%", boxShadow: 3 }}>
             <video
               width="100%"

@@ -18,7 +18,7 @@ export const Servicios = () => {
 
   return (
     <>
-      <Box sx={{ textAlign: "center", mb: 6 }}>
+      <Box id="servicios" sx={{ textAlign: "center", mb: 6 }}>
         <Typography variant="h2" fontWeight="bold" gutterBottom>
           Diseñamos tu sitio web a medida
         </Typography>
