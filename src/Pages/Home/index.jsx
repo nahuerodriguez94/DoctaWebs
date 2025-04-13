@@ -3,6 +3,7 @@ import { Navbar } from "../../Components/Navbar";
 import { Portada } from "../../Components/Portada";
 import { Servicios } from "../../Components/Servicios";
 import { Pasos } from "../../Components/Pasos";
+import { Nosotros } from "../../Components/Nosotros";
 import { Preguntas } from "../../Components/Preguntas";
 import { BtnWhatsApp } from "../../Button";
 import { FormularioContacto } from "../../Components/Contacto";
@@ -16,6 +17,7 @@ export const Home = () => {
         <Portada></Portada>
         <Servicios></Servicios>
         <Pasos></Pasos>
+        <Nosotros></Nosotros>
         <Preguntas></Preguntas>
         <FormularioContacto></FormularioContacto>
         <BtnWhatsApp> </BtnWhatsApp>

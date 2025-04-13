@@ -29,87 +29,130 @@ export const Pasos = () => {
 
   return (
     <Box
-      id="como-trabajamos"
-      sx={{ width: "100%", textAlign: "center", mt: 5 }}
+    id="como-trabajamos"
+    sx={{
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",  // centra horizontalmente los hijos
+      textAlign: "center",   // centra el texto
+      mt: { xs: 4, md: 6 },
+      px: { xs: 2, sm: 4 },
+    }}
+  >
+    <Typography
+      variant="h2"
+      fontWeight="bold"
+      gutterBottom
+      sx={{
+        fontSize: {
+          xs: "1.8rem",
+          sm: "2.4rem",
+          md: "3rem",
+        },
+      }}
     >
-      <Typography variant="h2" fontWeight="bold" gutterBottom>
-        Cómo Trabajamos
-      </Typography>
-      <Typography
-        variant="h6"
-        sx={{ maxWidth: "80%", margin: "0 auto", mb: 4 }}
-      >
-        En DoctaWebs trabajamos en estrecha colaboración con nuestros clientes.
-        Nos destacamos por una atención 100% personalizada para lograr que cada
-        proyecto sea único, reflejando la personalidad y el estilo de quienes
-        nos eligen. Nuestro servicio se compone de 3 etapas:
-      </Typography>
-
-      <Grid2
-        container
-        spacing={2}
-        alignItems="center"
-        direction={{ xs: "column", md: "row" }}
-      >
-        {/* Izquierda - Contenido */}
-        <Grid2 size={6} >
-          {procesos.map((proceso, index) => (
-            <Card
-              key={index}
-              sx={{
-                p: 3,
-                mb: 2,
-                textAlign: "center",
-                boxShadow: 3,
-                width:"100%"
-              }}
-            >
-              <CardContent>
-                <Box
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  gap={2}
-                  sx={{ mt: 1 }}
-                >
-                  {proceso.icono}
-                  <Typography variant="h5" fontWeight="bold">
-                    {proceso.titulo}
-                  </Typography>
-                </Box>
-                <Typography variant="body1" sx={{ mt: 2 }}>
-                  {proceso.descripcion}
+      Cómo Trabajamos
+    </Typography>
+  
+    <Typography
+      variant="h6"
+      sx={{
+        maxWidth: 900,
+        margin: "0 auto",
+        mb: 4,
+        fontSize: {
+          xs: "1rem",
+          sm: "1.1rem",
+          md: "1.2rem",
+        },
+      }}
+    >
+      En DoctaWebs trabajamos en estrecha colaboración con nuestros clientes.
+      Nos destacamos por una atención 100% personalizada para lograr que cada
+      proyecto sea único, reflejando la personalidad y el estilo de quienes
+      nos eligen. Nuestro servicio se compone de 3 etapas:
+    </Typography>
+  
+    <Grid2
+      container
+      spacing={3}
+      alignItems="center"
+      direction={{ xs: "column", md: "row" }}
+    >
+      {/* Izquierda - Contenido */}
+      <Grid2 xs={12} md={6}>
+        {procesos.map((proceso, index) => (
+          <Card
+            key={index}
+            sx={{
+              p: 3,
+              mb: 2,
+              textAlign: "center",
+              boxShadow: 3,
+              width: "100%",
+              maxWidth: 500,
+              mx: "auto", // centra las cards en pantallas pequeñas
+            }}
+          >
+            <CardContent>
+              <Box
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                gap={2}
+                sx={{ mt: 1 }}
+              >
+                {proceso.icono}
+                <Typography variant="h5" fontWeight="bold">
+                  {proceso.titulo}
                 </Typography>
-              </CardContent>
-            </Card>
-          ))}
-        </Grid2>
-
-        {/* Derecha - Video */}
-        <Grid2
-          display={{ xs: "none", md: "flex" }}
-          justifyContent="center"
-          alignItems="center"
-          size={6}
-        >
-          <Card sx={{ width: "100%", boxShadow: 3 }}>
-            <video
-              width="100%"
-              autoPlay
-              muted
-              loop
-              style={{
-                height: "100%",
-                objectFit: "cover",
-                borderRadius: "8px",
-              }}
-            >
-              <source src="./reunion.mp4" type="video/mp4" />
-              Tu navegador no soporta la etiqueta de video.
-            </video>
+              </Box>
+              <Typography variant="body1" sx={{ mt: 2 }}>
+                {proceso.descripcion}
+              </Typography>
+            </CardContent>
           </Card>
-        </Grid2>
+        ))}
       </Grid2>
-    </Box>
+  
+      {/* Derecha - Video */}
+      <Grid2
+        xs={12}
+        md={6}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        sx={{
+          mt: { xs: 4, md: 0 },
+        }}
+      >
+        <Card
+          sx={{
+            width: "100%",
+            maxWidth: 500,
+            boxShadow: 3,
+            borderRadius: 2,
+            overflow: "hidden",
+          }}
+        >
+          <video
+            width="100%"
+            autoPlay
+            muted
+            loop
+            style={{
+              height: "100%",
+              objectFit: "cover",
+            }}
+          >
+            <source src="./reunion.mp4" type="video/mp4" />
+            Tu navegador no soporta la etiqueta de video.
+          </video>
+        </Card>
+      </Grid2>
+    </Grid2>
+  </Box>
+  
   );
 };
