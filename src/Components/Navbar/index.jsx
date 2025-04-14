@@ -16,6 +16,7 @@ import { Link } from "react-scroll"; // 👈 Importar react-scroll
 const pages = [
   { name: "Servicios", id: "servicios" },
   { name: "Cómo Trabajamos", id: "como-trabajamos" },
+  { name: "Sobre Nosotros", id: "sobre-nosotros" },
   { name: "Preguntas Frecuentes", id: "preguntas-frecuentes" },
   { name: "Contacto", id: "contacto" },
 ];

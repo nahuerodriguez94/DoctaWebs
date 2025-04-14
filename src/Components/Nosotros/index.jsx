@@ -4,7 +4,7 @@ import { Typography, Box } from "@mui/material";
 export const Nosotros = () => {
   return (
     <Box
-      id="nosotros"
+      id="sobre-nosotros"
       sx={{
         width: "100%",
         display: "flex",
@@ -43,47 +43,15 @@ export const Nosotros = () => {
           },
         }}
       >
-        En Docta Web, comprendemos la importancia de tener una presencia
-        online sólida en el mundo digital actual. Sabemos que cada proyecto es
-        único, y por eso nos dedicamos a crear soluciones digitales a medida,
-        para que tu negocio se destaque.
-      </Typography>
-
-      <Typography
-        variant="h4"
-        fontWeight="bold"
-        gutterBottom
-        sx={{
-          mt: 2,
-          fontSize: {
-            xs: "1.5rem",
-            sm: "2rem",
-            md: "2.2rem",
-          },
-        }}
-      >
-        ¿Quién Soy?
-      </Typography>
-      <Typography
-        sx={{
-          maxWidth: 900,
-          mb: 4,
-          fontSize: {
-            xs: "1rem",
-            sm: "1.1rem",
-            md: "1.2rem",
-          },
-        }}
-      >
-        Mi nombre es Nahuel Rodriguez y soy el fundador de Docta Webs. Soy
-        Desarrollador Web Full Stack (ICARO-UNC) y Licenciado en Gestión
-        Publica (UCC). Gracias a esta formacion es que nos permite abordar el
-        desarrollo de sitios web con una visión más amplia. Desde la parte
-        técnica podemos crear sitios web funcionales y bien estructurados,
-        mientras que desde la administración entendemos la importancia de
-        organizar y optimizar procesos. Esto me permite crear soluciones
-        digitales no solo atractivas, sino también alineadas con los
-        objetivos, vision y mision de cada cliente.
+        Docta Webs fue fundada en Córdoba Capital, Argentina, con el objetivo de
+        brindar soluciones digitales accesibles y efectivas. Somos un equipo de
+        profesionales especializados en Desarrollo Web Full Stack y Administración, comprometidos con el crecimiento y la visibilidad de
+        cada organización, emprendimiento o empresa. Entendemos que estar
+        presente en internet hoy no es una opción, sino una necesidad. Tu sitio
+        web es la puerta de entrada a nuevas oportunidades, clientes y alianzas.
+        Por eso, diseñamos sitios modernos, funcionales y personalizados que
+        reflejan la identidad de cada proyecto y lo conectan con el mundo
+        digital de forma clara, profesional y estratégica.
       </Typography>
     </Box>
   );
