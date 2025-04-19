@@ -11,7 +11,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-scroll"; // 👈 Importar react-scroll
+import { Link } from "react-scroll"; // Navegación suave
 
 const pages = [
   { name: "Servicios", id: "servicios" },
@@ -33,15 +33,15 @@ export const Navbar = () => {
   };
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: "#6C63FF" }}>
+    <AppBar component="nav" position="fixed" sx={{ backgroundColor: "#6C63FF" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
           {/* Logo escritorio */}
           <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", mr: 2 }}>
-            <a href="#">
+            <a href="#" aria-label="Ir al inicio">
               <img
                 src="./logo.png"
-                alt="Logo"
+                alt="Logo de Docta Webs"
                 style={{
                   height: 60,
                   transition: "transform 0.3s",
@@ -54,10 +54,18 @@ export const Navbar = () => {
 
           {/* Menú móvil */}
           <Box sx={{ display: { xs: "flex", md: "none" }, flexGrow: 0 }}>
-            <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
+            <IconButton
+              size="large"
+              aria-label="abrir menú de navegación"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
               <MenuIcon />
             </IconButton>
             <Menu
+              id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
               transformOrigin={{ vertical: "top", horizontal: "left" }}
@@ -79,6 +87,8 @@ export const Navbar = () => {
                       textAlign: "center",
                       cursor: "pointer",
                     }}
+                    role="link"
+                    aria-label={`Ir a la sección ${page.name}`}
                   >
                     {page.name}
                   </Link>
@@ -87,7 +97,7 @@ export const Navbar = () => {
             </Menu>
           </Box>
 
-          {/* Logo mobile */}
+          {/* Logo móvil */}
           <Box
             sx={{
               display: { xs: "flex", md: "none" },
@@ -95,10 +105,10 @@ export const Navbar = () => {
               justifyContent: "center",
             }}
           >
-            <a href="#">
+            <a href="#" aria-label="Ir al inicio">
               <img
                 src="./logo.png"
-                alt="Logo"
+                alt="Logo de Docta Webs"
                 style={{
                   height: 60,
                   transition: "transform 0.3s",
@@ -125,6 +135,8 @@ export const Navbar = () => {
                 duration={500}
                 offset={-70}
                 style={{ textDecoration: "none" }}
+                role="link"
+                aria-label={`Navegar a la sección ${page.name}`}
               >
                 <Button
                   onClick={handleCloseNavMenu}

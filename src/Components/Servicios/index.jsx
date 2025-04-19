@@ -6,14 +6,13 @@ import {
   CardContent,
   CardMedia,
   CardActionArea,
-  Grid2
+  Grid2,
 } from "@mui/material";
-
 
 export const Servicios = () => {
   const productos = [
     { nombre: "Landing Page", imagen: "./landingPage.png" },
-    { nombre: "Tienda Web", imagen: "./tiendaWeb.png" },
+    // { nombre: "Tienda Web", imagen: "./tiendaWeb.png" },
     { nombre: "Profesionales", imagen: "./profesionales.png" },
     { nombre: "Inmobiliarias / Concesionarias", imagen: "./inmobiliarias.png" },
   ];
@@ -55,9 +54,9 @@ export const Servicios = () => {
             margin: "0 auto",
           }}
         >
-          En Docta Webs, creamos sitios web modernos, rápidos y optimizados
-          para generar resultados. Diseñamos páginas que se adaptan a tus
-          necesidades y objetivos.
+          En Docta Webs, creamos sitios web modernos, rápidos y optimizados para
+          generar resultados. Diseñamos páginas que se adaptan a tus necesidades
+          y objetivos.
         </Typography>
       </Box>
 
@@ -92,7 +91,15 @@ export const Servicios = () => {
                 <CardMedia
                   component="img"
                   src={producto.imagen}
-                  alt={producto.nombre}
+                  alt={
+                    producto.nombre === "Landing Page"
+                      ? "Diseño de Landing Page moderna y efectiva por Docta Webs"
+                      : producto.nombre === "Profesionales"
+                      ? "Sitios web profesionales personalizados por Docta Webs"
+                      : producto.nombre === "Inmobiliarias / Concesionarias"
+                      ? "Sitios web para inmobiliarias y concesionarias con catálogos"
+                      : `Servicio web de ${producto.nombre} por Docta Webs`
+                  }
                   sx={{
                     height: 200,
                     width: "100%",
@@ -111,8 +118,8 @@ export const Servicios = () => {
                   <Typography variant="body1" textAlign="center" sx={{ mt: 1 }}>
                     {producto.nombre === "Landing Page" &&
                       "Diseñadas para captar clientes y aumentar conversiones. Ideales para campañas publicitarias, promociones o lanzamientos de productos."}
-                    {producto.nombre === "Tienda Web" &&
-                      "Creamos tiendas online en Tiendanube, listas para vender, con un diseño atractivo, medios de pago integrados y una experiencia de compra optimizada."}
+                    {/* {producto.nombre === "Tienda Web" &&
+                      "Creamos tiendas online en Tiendanube, listas para vender, con un diseño atractivo, medios de pago integrados y una experiencia de compra optimizada."} */}
                     {producto.nombre === "Profesionales" &&
                       "Toda empresa y profesional independiente necesita una web que inspire confianza y refleje su identidad. Creamos sitios empresariales bien estructurados con información clara."}
                     {producto.nombre === "Inmobiliarias / Concesionarias" &&
